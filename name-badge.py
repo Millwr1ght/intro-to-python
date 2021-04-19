@@ -10,7 +10,7 @@ print('\nPrinting new ID Badge...\n')
 
 print(f'''----------------------------------------
 {last_name.upper()}, {first_name.capitalize()}
-{job_title.capitalize()}
+{job_title.title()}
 ID: {id_number}
 
 {email_address.lower()}
