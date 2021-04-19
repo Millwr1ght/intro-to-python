@@ -59,7 +59,7 @@ else:
     print(f'The area of the square is: {square_area} units^2')
 
     # calculate area of a rectangle == length * width
-    rect_length = float(input('What is the length of rectangle? '))
+    rect_length = float(input('What is the length of the rectangle? '))
     rect_width = float(input('What is the width of the rectangle? '))
     rect_area = rect_length * rect_width
     print(f'The area of the rectangle is: {rect_area} units^2')
