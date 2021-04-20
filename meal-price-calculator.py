@@ -48,13 +48,12 @@ print(f'Tax: ${sales_tax:.2f}')
 print(f'Total: ${total:.2f}\n')
 
 # get payment and finish transaction
-# do at least once
 amount_owed = total
+# while the user has a bill, ask them for money until they pay up 
 while amount_owed > 0:
     amount_paid = float(input('What is the payment amount? '))
     amount_owed -= amount_paid
-    if amount_owed < 0:
-        change = abs(amount_owed)
-        print(f'Change: ${change:.2f}')
-    else:
+    if amount_owed > 0:
         print(f'You still owe us ${amount_owed:.2f}.')
+change = abs(amount_owed)
+print(f'Change: ${change:.2f}')
