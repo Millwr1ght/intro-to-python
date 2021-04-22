@@ -1,5 +1,5 @@
 #initiate the comparisons
-correct_favorite_animal = 'moose'
+correct_favorite_animal = 'Moose'
 first_number = int(input('What is the first number? '))
 second_number = int(input('What is the second number? '))
 
