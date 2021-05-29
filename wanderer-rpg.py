@@ -85,9 +85,9 @@ print(opening_sequence)
 def menu(menu, *choices):
     # menu
     choice = ''
-    while choice.upper() not in choices:
-        print('...')
-        choice = input(menu)
+    while (choice := input(menu)).upper() not in choices:
+        print('\n(Invalid selection)')
+
     print('----------------------------------------')
     return choice
 
