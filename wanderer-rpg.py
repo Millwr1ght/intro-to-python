@@ -3,6 +3,7 @@ WANDERER RPG by N Johnston
 
 """
 
+game_playing = True
 
 # initiate menu 'variables'
 opening_sequence = '''----------------------------------------
@@ -91,70 +92,68 @@ def menu(menu, *choices):
     return choice
 
 
-choice_one = menu(menu_default, 1, 2, 3, 4, 'WANDERER',
-                  'ABOUT', 'HOW', 'LEAVE', 'START')
+while game_playing:
+    choice_one = menu(menu_default, 1, 2, 3, 4, 'WANDERER',
+                      'ABOUT', 'HOW', 'LEAVE', 'START')
 
-# about screen
-if choice_one.lower() == 'about' or choice_one == '3':
-    choice_two = menu(' =========  About - WANDERER  ========= \nMillwright Gaming is a one-person game\ndevelopment team devoted to making high\nquality gaming experiences available at\naffordable prices. This version of\nWANDERER is the 2021 reboot of the 2015\nCLASSIC, originally available on Mill\'s\nTI-84 Graphing Calculator.', 'WANDERER', 'CLASSIC')
-    if choice_two.lower() == 'WANDERER':
-        # wanderer
-        print()
-    elif choice_two.lower() == 'CLASSIC':
-        # classic
-        print()
+    # about screen
+    if choice_one.lower() == 'about' or choice_one == '3':
+        choice_two = menu(' =========  About - WANDERER  ========= \nMillwright Gaming is a one-person game\ndevelopment team devoted to making high\nquality gaming experiences available at\naffordable prices. This version of\nWANDERER is the 2021 reboot of the 2015\nCLASSIC, originally available on Mill\'s\nTI-84 Graphing Calculator.', 'WANDERER', 'CLASSIC')
+        if choice_two.lower() == 'WANDERER':
+            # wanderer
+            print()
+        elif choice_two.lower() == 'CLASSIC':
+            # classic
+            print()
 
+    # help screen
+    elif choice_one.lower() == 'how' or choice_one == '2':
+        choice_two = menu(' ===========  How To Play  ============\nAs you journey across the Deserts of\nIncarnadine, you will be presented with\nmany CHOICES, which will be displayed in\nFULLCAPS. You can then type the choice\nyou choose and suffer the consequences,\nwhich may lead to more choices.\n\nYour goal? exploration, treasure, and\nabove all, ADVENTURE.', 'ADVENTURE', 'CHOICES', 'FULLCAPS')
+        if choice_two.lower() == 'adventure':
+            # adventure is out there
+            print()
+        elif choice_two.lower() == 'choices':
+            # many choices
+            print()
+        elif choice_two.lower() == 'fullcaps':
+            # FULL CAPS TURNABOUT
+            print()
 
-# help screen
-elif choice_one.lower() == 'how' or choice_one == '2':
-    choice_two = menu(' ===========  How To Play  ============\nAs you journey across the Deserts of\nIncarnadine, you will be presented with\nmany CHOICES, which will be displayed in\nFULLCAPS. You can then type the choice\nyou choose and suffer the consequences,\nwhich may lead to more choices.\n\nYour goal? exploration, treasure, and\nabove all, ADVENTURE.', 'ADVENTURE', 'CHOICES', 'FULLCAPS')
-    if choice_two.lower() == 'adventure':
-        # adventure is out there
-        print()
-    elif choice_two.lower() == 'choices':
-        # many choices
-        print()
-    elif choice_two.lower() == 'fullcaps':
-        # FULL CAPS TURNABOUT
-        print()
-
-
-# exit game
-elif choice_one.lower() == 'leave' or choice_one == '4':
-    choice_two = menu('\n\tTHANKS for PLAYING!\n', 'THANKS', 'PLAYING')
-    if choice_two.lower() == 'thanks':
-        # option 1
-        print()
-    elif choice_two.lower() == 'playing':
-        # option 2
-        print()
-
-
-# adventure begins...
-elif choice_one == '1' or choice_one.lower() == 'start':
-    choice_two = menu(menu_what, 'GAME', 'LEAVE')
-    if choice_two.lower() == 'game':
-        # option 1
-        print(menu_what_game)
-        print('...')
-        print('what game?')
-        # END
-    elif choice_two.lower() == 'leave':
-        # option 2
-        choice_three = menu(menu_what_stuck, 'PLAY', 'INFO')
-        if choice_two.lower() == 'play':
+    # exit game
+    elif choice_one.lower() == 'leave' or choice_one == '4':
+        choice_two = menu('\n\tTHANKS for PLAYING!\n', 'THANKS', 'PLAYING')
+        if choice_two.lower() == 'thanks':
             # option 1
             print()
-        elif choice_two.lower() == 'info':
+        elif choice_two.lower() == 'playing':
             # option 2
             print()
 
-# credits screen
-elif choice_one.upper() == 'WANDERER':
-    choice_two = menu(credits_sequence, 'MILL', 'YOU')
-    if choice_two.lower() == 'MILL':
-        # me
-        print()
-    elif choice_two.lower() == 'YOU':
-        # or you
-        print()
+    # adventure begins...
+    elif choice_one == '1' or choice_one.lower() == 'start':
+        choice_two = menu(menu_what, 'GAME', 'LEAVE')
+        if choice_two.lower() == 'game':
+            # option 1
+            print(menu_what_game)
+            print('...')
+            print('what game?')
+            # END
+        elif choice_two.lower() == 'leave':
+            # option 2
+            choice_three = menu(menu_what_stuck, 'PLAY', 'INFO')
+            if choice_two.lower() == 'play':
+                # option 1
+                print()
+            elif choice_two.lower() == 'info':
+                # option 2
+                print()
+
+    # credits screen
+    elif choice_one.upper() == 'WANDERER':
+        choice_two = menu(credits_sequence, 'MILL', 'YOU')
+        if choice_two.lower() == 'MILL':
+            # me
+            print()
+        elif choice_two.lower() == 'YOU':
+            # or you
+            choice_three = menu(thanks_for_playing, 'QUIT', 'RESTART')
