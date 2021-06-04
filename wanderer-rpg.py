@@ -16,8 +16,7 @@ opening_sequence = '''----------------------------------------
 ----------------------------------------
 
 Welcome to WANDERER, the text-based RPG
-adventure developed by Millwr1ght Gaming
-'''
+adventure developed by Millwr1ght Gaming'''
 credits_sequence = '''----------------------------------------
  ===========  Game Credits  ===========
 
@@ -32,51 +31,43 @@ credits_sequence = '''----------------------------------------
     Made possible by users like YOU,
                Thank you!
 
-----------------------------------------
-'''
-
+----------------------------------------'''
 menu_default = '''----------------------------------------
  ======  WANDERER --- Main Menu  ======
 
      1. START Game   2. HOW To Play
      3. ABOUT Info   4. LEAVE
-----------------------------------------
-'''
+----------------------------------------'''
 menu_stuck = '''----------------------------------------
  ======  Wanderer --- Main Menu  ======
 
      1. START Game   2. HOW To Play
      3. ABOUT Info   no escape
-----------------------------------------
-'''
+----------------------------------------'''
 menu_stuck_what = '''----------------------------------------
  ======  stuckwhat -- MAIN MENU  ======
 
       what game       play?
       about info      no escape
-----------------------------------------
-'''
+----------------------------------------'''
 menu_what = '''----------------------------------------
  ======  whatever --- Main Menu  ======
 
      1. What GAME    2. How To Play
      3. About Info   4. LEAVE
-----------------------------------------
-'''
+----------------------------------------'''
 menu_what_stuck = '''----------------------------------------
  ======  whatstuck -- Main Menu  ======
 
       what game       2. PLAY
       3. INFO         no escape
-----------------------------------------
-'''
+----------------------------------------'''
 menu_what_game = '''----------------------------------------
  ======  whatever --- Main Menu  ======
 
      there is not any game to play
      & therefore you can not LEAVE
-----------------------------------------
-'''
+----------------------------------------'''
 thanks_for_playing = '''----------------------------------------
  ======================================
  You did it. You made it to the ending.
@@ -88,8 +79,7 @@ thanks_for_playing = '''----------------------------------------
 
         [SAVE & QUIT]     [QUIT]
 
-----------------------------------------
-'''
+----------------------------------------'''
 true_thanks_for_playing = '''----------------------------------------
  ======================================
  You did it. You made it to the true
@@ -105,8 +95,7 @@ true_thanks_for_playing = '''----------------------------------------
 
         [RESTART]         [QUIT]
 
-----------------------------------------
-'''
+----------------------------------------'''
 youve_been_here = '''----------------------------------------
  ======================================
  You did it. You made it to the ending.
@@ -126,8 +115,7 @@ youve_been_here = '''----------------------------------------
  through the end screens? That maybe
  -I- would be merciful?
 
-----------------------------------------
-'''
+----------------------------------------'''
 about_screen = '''----------------------------------------
  =========  About - WANDERER  =========
  Millwright Gaming is a one-person game
@@ -139,8 +127,7 @@ about_screen = '''----------------------------------------
  available on Mill\'s TI-84 Graphing
  Calculator.
 
-----------------------------------------
-'''
+----------------------------------------'''
 help_screen = '''----------------------------------------
  ===========  How To Play  ============
  As you journey across the Deserts of
@@ -152,9 +139,67 @@ help_screen = '''----------------------------------------
  more choices.
 
  Your goal? exploration, treasure, and
- above all, ADVENTURE.
-----------------------------------------
+ above all, aDVENTURE.
+----------------------------------------'''
+no_choices = '''----------------------------------------
+From here on out there are no more
+choices. Technically, you chould choose
+any word and it would do something.
+Think about it. There are so many words!
+Even now the menu processor is loading 
+all the possible words into the choice-
+wordinput matching algorit 
+
+Traceback (most recent call last):
+  File "wanderer-rpg.py", line 210, in menu()
+    while (choice := input(menu)).upper() not in choices:
+OverflowError: too many choices
 '''
+adventure_game = '''----------------------------------------
+----------------------------------------'''
+final_boss = '''----------------------------------------
+ ======================================
+ You find yourself in a large cavernous
+ room. Between you and a door marked
+ "True Exit" stands Millwr1ght, the one
+ and only, the final boss of the full
+ version of this game. He seems to be
+ messing with the backend code of the
+ game when he notices your vacant stare
+
+    He presents you with two options:
+     You can either ATTACK or BLOCK,
+    Which one you choose is up to you
+
+----------------------------------------'''
+pre_capital = '''----------------------------------------
+
+
+            are you sure
+
+             [YES] [NO]
+
+
+----------------------------------------'''
+CAPITAL_PUNISHMENT = '''----------------------------------------
+ ======================================
+ 
+ BWA-HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA
+
+ WELCOME TO WHAT IS NOW YOUR EXISTENCE!
+ WELCOME TO FULLCAPS LAND! ALL FUTURE
+ PROMPTS ARE FULLY FULLCAPS! YOU WILL
+ HAVE NO IDEA AS TO WHICH KEYWORDS WILL
+ ALLOW YOU TO PROCEED ON YOUR JOURNEY
+ THROUGH THIS ENDLESS TORTURE MAZE OF A
+ MAIN MENU! I MEAN WHO EVEN CAME UP
+ WITH THIS!? THIS IS SUCH A BAD CONCEPT
+ FOR A TEXT-BASED RPG, SO TEDIOUS HAVING TO DESIGN MENU AFTER MENU AFTER MENU
+
+ WOAH. that's not supposed to happen ?
+
+ ======================================
+----------------------------------------'''
 
 
 def menu(menu, *choices):
@@ -196,22 +241,37 @@ def main():
 
         # help screen
         elif choice_one.lower() == 'how' or choice_one == '2':
-            choice_two = menu(help_screen, 'ADVENTURE', 'CHOICES', 'FULLCAPS')
-            # adventure is out there
-            if choice_two.lower() == 'adventure':
-                end_game()  # TODO
+            choice_two = menu(help_screen, 'CHOICES', 'FULLCAPS')
             # many choices
-            elif choice_two.lower() == 'choices':
-                end_game()  # TODO
+            if choice_two.lower() == 'choices':
+                print(no_choices)
+                end_game()
             # FULL CAPS TURNABOUT
             elif choice_two.lower() == 'fullcaps':
-                end_game()  # TODO
+                choice_three = menu(pre_capital, 'YES', 'NO')
+                # yes
+                if choice_three.lower() == 'yes':
+                    choice_four = menu(CAPITAL_PUNISHMENT, 'WOAH', 'SKIP')
+                    # opt1
+                    if choice_four.lower() == 'woah':
+                        print('----------------------------------------\n i know right? that\'s so cooool. i can go alllllllllllll the way past the edge of the screen now!\nwhat fun!\n\nWHOOPS. ACCIDENTALLY HIT THE CAPS LOCK KEY THERE. YOU SAW NOTHING. THERE IS ONLY FULLCAPS.\n\n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS \n ONLY FULLCAPS')
+                        end_game()
+                    # opt2
+                    elif choice_four.lower() == 'skip':
+                        print(
+                            'Did you just? Skip? Could you always do that? Huh. \nImma go back there and fix that. Be right back. You go wait outside.')
+                        end_game()
+                # no
+                else:
+                    print(
+                        'Why would you choose no? You could have had so much fun in All Caps Land. Here, try again.')
 
         # exit game
         elif choice_one.lower() == 'leave' or choice_one == '4':
-            choice_two = menu('\n\tTHANKS for PLAYING!\n', 'THANKS', 'PLAYING')
+            choice_two = menu('\n\tTHANKS for PLAYING!\n', 'THANKS')
             # thanks where thanks is due
             if choice_two.lower() == 'thanks' and not SAVE:
+                print('You\'re Welcome!\n')
                 choice_three = menu(thanks_for_playing, 'QUIT', 'SAVE')
                 # 'end' the game but does it?
                 if choice_three.lower() == 'save':
@@ -226,7 +286,7 @@ def main():
                     # you thought
 
             # you've been here before
-            if choice_two.lower() == 'thanks' and SAVE:
+            elif choice_two.lower() == 'thanks' and SAVE:
                 choice_three = menu(youve_been_here, 'I', 'CODE', '')
                 # python version 3
                 if choice_three.lower() == 'code':
@@ -244,10 +304,6 @@ def main():
                     # delete save file
                     SAVE = False
 
-            # option 2
-            elif choice_two.lower() == 'playing':
-                end_game()  # TODO
-
         # adventure begins...
         elif choice_one == '1' or choice_one.lower() == 'start':
             choice_two = menu(menu_what, 'GAME', 'LEAVE')
@@ -261,40 +317,28 @@ def main():
 
             # option 2
             elif choice_two.lower() == 'leave':
-
-                choice_three = menu(menu_what_stuck, 'PLAY', 'INFO')
-                # option 1
-                if choice_three.lower() == 'play':
-                    choice_four = menu()  # TODO
-                    # option 1
-                    if choice_four.lower() == '':
-                        end_game()  # TODO
-                    # option 2
-                    elif choice_four.lower() == '':
-                        end_game()  # TODO
-
-                # option 2
-                elif choice_three.lower() == 'info':
-                    choice_four = menu()  # TODO
-                    # option 1
-                    if choice_four.lower() == '':
-                        end_game()  # TODO
-                    # option 2
-                    elif choice_four.lower() == '':
-                        end_game()  # TODO
+                print('I had this whole thing here where I wasn\'t gonna let you leave, and was all kinda boring. So here I am letting you out the backdoor.')
+                print('Have a nice night!')
+                # end_game()
+                # ha nope
+                print('\nsike no')
 
         # credits screen
         elif choice_one.upper() == 'WANDERER':
             choice_two = menu(credits_sequence, 'MILL', 'YOU')
-            # me
+            # choose me
             if choice_two.lower() == 'MILL':
-                choice_three = menu()  # TODO
+                choice_three = menu(final_boss, 'ATTACK', 'BLOCK')
                 # option 1
-                if choice_three.lower() == '':
-                    end_game()  # TODO
-                # option 2
-                elif choice_three.lower() == '':
-                    end_game()  # TODO
+                if choice_three.lower() == 'attack':
+                    print(
+                        '\n"With what weapon? I don\'t think I\'ve seen you even pick one up yet!"')
+                    # option 2
+                elif choice_three.lower() == 'block':
+                    print('"Uh... Okay then."')
+
+                print('\nWhile you scramble for some way to attack the final boss, Mill uses his ultimate attack out of turn, killing your avatar.')
+                end_game()
 
             # or you
             elif choice_two.lower() == 'YOU':
@@ -375,4 +419,5 @@ def old_game():
 
 
 if __name__ == '__main__':
-    old_game()
+    # old_game()
+    main()
