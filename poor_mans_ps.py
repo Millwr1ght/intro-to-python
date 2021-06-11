@@ -27,15 +27,15 @@ def Photoshop(foreground, background, new_name='new_images/new_image'):
             # print(f'{pixel_x}, {pixel_y}')
 
             # get pixel rbg values
-            rb, gb, bb = pixels_background[pixel_x, pixel_y]
-            rf, gf, bf = pixels_foreground[pixel_x, pixel_y]
+            r, g, b = pixels_foreground[pixel_x, pixel_y]
 
             # if foreground is green enough, replace it
-            if rf <= 115 and gf >= 140 and bf <= 115:
+            if r <= 115 and g >= 140 and b <= 115:
                 # replace with background_img
-                pixels_new[pixel_x, pixel_y] = (rb, gb, bb)
+                pixels_new[pixel_x,
+                           pixel_y] = pixels_background[pixel_x, pixel_y]
             else:
-                pixels_new[pixel_x, pixel_y] = (rf, gf, bf)
+                pixels_new[pixel_x, pixel_y] = (r, g, b)
 
     # save and quit
     image_new.save(f'{new_name}.jpg')
