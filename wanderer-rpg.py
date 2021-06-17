@@ -4,7 +4,6 @@ Author: N Johnston
 
 """
 
-GAME_PLAYING = True
 SAVE = False
 
 # initiate menu 'screens'
@@ -218,7 +217,7 @@ def end_game():
 
 def main():
     """" the 'the main menu rpg game' game """
-
+    GAME_PLAYING = True
     # opening title sequence
     print(opening_sequence)
 
