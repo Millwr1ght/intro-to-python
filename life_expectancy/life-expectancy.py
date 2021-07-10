@@ -1,4 +1,12 @@
-def get_stats(year=0):
+"""
+File: life-expectancy.py
+Author: Nathan Johnston
+
+Objective: Analysis of a census data
+"""
+
+
+def get_stats(year: int = 0):
     """ get stats from the .csv:
     skip the first line of the file, and iterate line by line
     find the life expectancy (line[3] given the .csv structure)
