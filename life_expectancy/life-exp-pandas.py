@@ -6,6 +6,7 @@ Objective: Analysis of a census data
 
 """
 import pandas
+import matplotlib.pyplot as plt
 
 census_file = "life_expectancy\\life-expectancy.csv"
 
