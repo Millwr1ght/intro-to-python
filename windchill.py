@@ -26,15 +26,17 @@ def calc_windchill(temperature, wind_speed):
     return 35.74 + (0.6215 * temperature) - (35.75 * (wind_speed ** 0.16)) + (0.4275 * temperature * (wind_speed ** 0.16))
 
 
-def convert_c_to_f(temperature):
-    """ converts celcius to fahrenheit 
+def convert_c_to_f(temperature: float):
+    """ 
+    converts celcius to fahrenheit 
     :return: float
     """
     return (temperature * (9 / 5)) + 32
 
 
 def prompt_temperature():
-    """ gets user input on temperature 
+    """ 
+    gets user input on temperature 
     :return: float
     """
     temp = float(input('What is the Temperature? '))
